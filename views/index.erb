@@ -1,0 +1,28 @@
+<html>
+  <head></head>
+  <body>
+    <% if gen_table.nil?	%>
+      <form>
+				True Symbol:
+        <input type='text' name='true' />
+				<br>
+				False Symbol:
+				<input type='text' name='false' />
+				<br>
+				Size (2^x):
+				<input type='text' name='size' />
+				<br>
+				<input type='submit' value='Show truth table' name='table'/>
+				<br>
+				<a href=" ">Reload Page</a>
+      </form>
+    <% end %>
+		
+		<%if !gen_table.nil? %>
+			YAYYYY
+			
+		<%end%>
+		
+		
+  </body>
+</html>
