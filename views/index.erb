@@ -1,7 +1,7 @@
 <html>
   <head></head>
   <body>
-    <% if gen_table.nil?	%>
+    <% if @gen_table.nil?	%>
       <form>
 				True Symbol:
         <input type='text' name='true' />
@@ -14,15 +14,35 @@
 				<br>
 				<input type='submit' value='Show truth table' name='table'/>
 				<br>
-				<a href=" ">Reload Page</a>
+				<a href="/">Reload Page</a>
       </form>
     <% end %>
 		
-		<%if !gen_table.nil? %>
-			YAYYYY
-			
+		<%if !@gen_table.nil? %>
+			<table style="width:50%">
+				<tr>
+					<% (@size_table.to_i-1).downto(0) do |i| %>
+						<th><p><%= i %><p></th>
+					<% end %>
+					<th>AND</th>
+					<th>OR</th> 
+					<th>XOR</th>
+				</tr>
+				<% 0.upto(@operators.length-1) do |i| %>
+					<% if i % (@size_table+3) == 0 %>
+						<tr>
+					<% end %>
+						<% if @operators[i].to_i == 1 %>
+							<td><p><%= @truth%><p></td>
+						<% else %>
+							<td><p><%= @falseth%><p></td>
+						<% end %>
+					<% if i % (@size_table+3) == (@size_table+2) %>
+						</tr>
+					<% end %>
+				<% end %>
+			</table>
+				<a href="/">Back to main</a>
 		<%end%>
-		
-		
   </body>
 </html>
